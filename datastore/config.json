@@ -1,0 +1,23 @@
+{
+      "data_list": [
+            "keys",
+            "vals"
+      ],
+      "data_infos": {
+            "keys": {
+                  "name": "keys",
+                  "shape": [
+                        4654161,
+                        512
+                  ],
+                  "dtype": "<class 'numpy.float32'>"
+            },
+            "vals": {
+                  "name": "vals",
+                  "shape": [
+                        4654161
+                  ],
+                  "dtype": "<class 'int'>"
+            }
+      }
+}

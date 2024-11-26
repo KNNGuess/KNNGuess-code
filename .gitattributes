@@ -1,1 +1,2 @@
 experiment/model.pth filter=lfs diff=lfs merge=lfs -text
+datastore/keys.faiss_index filter=lfs diff=lfs merge=lfs -text
