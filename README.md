@@ -1,5 +1,5 @@
 # Targeted Password Guessing Using k-Nearest Neighbors
-We propose KNNGuess/KNN-TPG as a new targeted password guessing model based on old password. We show how to use our trained model (with the trained model weights in ./experiment and the trained KNN-TPG database in ./datastore) to generate guesses for a password or evaluate the strength of a current password based on an old one (see Figure 12 in the paper). Some of the data used to generate the experimental plots is shown in ./exp_ans.
+We propose KNNGuess/KNN-TPG as a new targeted password guessing model based on old password. We show how to use our trained model (with the trained model weights in ./experiment and the trained KNN-TPG database in ./datastore) to evaluate the strength of a current password based on an old one (see Figure 12 in the paper). Some of the data used to generate the experimental plots is shown in ./exp_ans.
 
 # Experimental Setup:
 - ## Microarchitecture
