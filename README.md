@@ -24,11 +24,6 @@ conda install faiss-cpu -c pytorch
 ```
 
 # Run
-## Generate guesses for a password
-```
-python guess_one.py --source_password YOUR_PASSWORD
-```
-The output is all the guesses for YOUR_PASSWORD (e.g. 1000 guesses)
 
 ## Evaluating password strength
 ```
