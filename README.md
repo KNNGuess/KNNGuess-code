@@ -19,8 +19,8 @@ We propose KNNGuess/KNN-TPG as a new targeted password guessing model based on o
 You can use it to build environment:
 
 ```
-conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-conda install faiss-cpu -c pytorch
+conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch -c nvidia
+conda install -c pytorch -c nvidia fass-gpu=1.7.3
 ```
 
 # Run
