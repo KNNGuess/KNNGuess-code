@@ -32,3 +32,5 @@ python psm.py --source_password YOUR_OLD_PASSWORD --target_password YOUR_NEW_PAS
 "YOUR_NEW_PASSWORD" is the password whose strength needs to be evaluated. A detailed description of the KNN-PSM can be found in Appendix H of the paper.
 
 The output is the probability of each character in YOUR_NEW_PASSWORD being predicted by KNNGuess. The greater the probability, the less secure the character is, and the easier it is for the password to be guessed by an attacker.
+
+**Note that the results KNNGuess present do not include those with mixed popular passwords.**
