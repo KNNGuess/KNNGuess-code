@@ -116,8 +116,8 @@ def beam_decode2(model,src,src_mask,max_len,pad,bos,eos,datastore,retriever,comb
         #res[num].append(last)
         if last==eos:
             if len(y)>config.min_len:
-                if check(y): ########mod
-                    decode_ans.append((log_prob[i].item(),y))
+                #if check(y): ########mod
+                decode_ans.append((log_prob[i].item(),y))
             continue
         new_res.append(y)
         new_log_prob.append(log_prob[i].item())
@@ -169,8 +169,8 @@ def beam_decode2(model,src,src_mask,max_len,pad,bos,eos,datastore,retriever,comb
             y=ans[num]+[last] # 4
             if last==eos:
                 if len(y)>config.min_len:
-                    if check(y): 
-                        decode_ans.append((log_prob[i].item(),y))
+                    #if check(y): 
+                    decode_ans.append((log_prob[i].item(),y))
                 continue
             new_res.append(y)
             new_log_prob.append(log_prob[i].item())
