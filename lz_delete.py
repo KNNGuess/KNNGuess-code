@@ -139,17 +139,17 @@ def beam_decode2(model,src,src_mask,max_len,pad,bos,eos,datastore,retriever,comb
         results=retriever.retrieve(out[:,-1], return_list=["vals", "distances"])
         knn_prob = combiner.get_knn_prob(**results, device=config.device)
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        local_res_nopadding,local_res=get_local_res(new_res)
-        local_src_mask = (local_res != pad).unsqueeze(-2)
-        local_src_enc=model.encode(local_res,local_src_mask)
-        dec_seq=get_dec_seq(local_res_nopadding)
-        assert local_src_enc.shape[0] == dec_seq.shape[0] == local_src_mask.shape[0]
-        out=model.decode(local_src_enc,local_src_mask,dec_seq,subsequent_mask(dec_seq.size(1)).type_as(src.data))
-        results=retriever.retrieve(out[:,-1], return_list=["vals", "distances"])
-        local_knn_prob=combiner.get_knn_prob(**results, device=config.device)
-        next_prob=next_prob*config.lambda_+knn_prob.squeeze(1)*config.knn_lambda_+local_knn_prob.squeeze(1)*config.local_knn_lambda_
+        # local_res_nopadding,local_res=get_local_res(new_res)
+        # local_src_mask = (local_res != pad).unsqueeze(-2)
+        # local_src_enc=model.encode(local_res,local_src_mask)
+        # dec_seq=get_dec_seq(local_res_nopadding)
+        # assert local_src_enc.shape[0] == dec_seq.shape[0] == local_src_mask.shape[0]
+        # out=model.decode(local_src_enc,local_src_mask,dec_seq,subsequent_mask(dec_seq.size(1)).type_as(src.data))
+        # results=retriever.retrieve(out[:,-1], return_list=["vals", "distances"])
+        # local_knn_prob=combiner.get_knn_prob(**results, device=config.device)
+        # next_prob=next_prob*config.lambda_+knn_prob.squeeze(1)*config.knn_lambda_+local_knn_prob.squeeze(1)*config.local_knn_lambda_
         #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        #next_prob=next_prob*config.lambda_+knn_prob.squeeze(1)*(1-config.lambda_)  #  modify
+        next_prob=next_prob*config.lambda_+knn_prob.squeeze(1)*(1-config.lambda_)  #  modify
         next_prob=torch.log(next_prob)
         log_prob_tensor=log_prob_tensor.unsqueeze(1).expand_as(next_prob) # beam_hold, 98
 
